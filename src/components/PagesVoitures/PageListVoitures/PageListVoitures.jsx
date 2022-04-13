@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { TEXT_ERREUR_GENERIQUE, TEXT_VOITURES_LIST_ID, TEXT_VOITURES_LIST_MARQUE, TEXT_VOITURES_LIST_MODELE, TEXT_VOITURES_LIST_MODIFIER, TEXT_VOITURES_LIST_SUPPRIMER } from "../../../constants/textConstants";
+import { TEXT_ERREUR_GENERIQUE, TEXT_VOITURES_LIST_ID, TEXT_VOITURES_LIST_MARQUE, TEXT_VOITURES_LIST_MODELE, TEXT_VOITURES_LIST_MODIFIER, TEXT_VOITURES_LIST_SUPPRIMER, TEXT_VOITURES_LIST_TITLE } from "../../../constants/textConstants";
 import ListeVoituresDetails from "./ListVoituresDetails/ListVoituresDetails";
 
 class PageListVoitures extends Component {
@@ -33,7 +33,7 @@ class PageListVoitures extends Component {
         return(
     <div className="container">
     {error && <p className="text-danger">{TEXT_ERREUR_GENERIQUE}</p>}
-        <h1>Mes Voitures</h1>
+        <h1>{TEXT_VOITURES_LIST_TITLE}</h1>
         <table class="table table-info table-striped">
             <thead>
                 <th>{TEXT_VOITURES_LIST_ID}</th>
