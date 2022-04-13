@@ -1,0 +1,9 @@
+export const NAME_SITE = 'MonGarage';
+export const MES_VOITURES = 'Mes Voitures';
+export const MES_MARQUES = 'Mes Marques';
+export const MES_CLIENTS = 'Mes Clients';
+export const MES_FICHES = 'Mes Fiches';
+export const NAME_ACCUEIL = 'Accueil';
+export const TEXT_PRESENTATION_POLITESSE = 'Bonjour,';
+export const TEXT_PRESENTATION_RAISON = 'Je suis Tanguy Camus et je suis le développeur de ce site magnifique par ce que je refais pendant deux semaines un cours que j\'ai déjà fait et que j\'ai besoins d\'occupation';
+export const TEXT_PRESENTATION_TECHNIQUE = 'Le back est une application ASP .NET en C# qui est une API et le front est un React avec un designer de qualité (moi)';
