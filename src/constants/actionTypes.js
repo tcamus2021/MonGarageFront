@@ -1,0 +1,3 @@
+export const LAUNCH_APP = 'LAUNCH_APP';
+export const GET_VOITURES = 'GET_VOITURES';
+export const GET_VOITURES_SUCCESS = 'GET_VOITURES_SUCCESS';
