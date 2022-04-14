@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { TEXT_ERREUR_GENERIQUE, TEXT_MARQUES_LIST_NOM, TEXT_MARQUES_LIST_SIGLE, TEXT_MARQUES_LIST_TITLE, TEXT_MARQUES_LIST_MODIFICATION, TEXT_AJOUT } from "../../../constants/textConstants";
+import { URL_BASE, URL_MARQUES_NEW, URL_HTTP } from "../../../constants/urlConstant";
 import ButtonCreate from "../../Buttons/ButtonCreate";
 import Loader from "../../Loader/Loader";
 import ListMarquesDetails from "./ListMarquesDetails/ListMarquesDetails";
@@ -41,7 +42,7 @@ class PageListMarques extends Component {
             <tbody>{affichageMarques}</tbody>
             </table>
             {isLoading && <Loader/>}
-        <ButtonCreate link={'/'} text={TEXT_AJOUT} />
+        <ButtonCreate link={URL_HTTP + URL_BASE + URL_MARQUES_NEW} text={TEXT_AJOUT} />
     </div>)
     }
 }

@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import getMarques from "../../../utils/getterMarques";
+import { getMarques } from "../../../utils/getterMarques";
 import PageListMarques from "./PageListMarques";
 
 const mapStateToProps = () => ({
