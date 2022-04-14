@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { TEXT_ERREUR_GENERIQUE, TEXT_MARQUES_LIST_NOM, TEXT_MARQUES_LIST_SIGLE, TEXT_MARQUES_LIST_TITLE, TEXT_MARQUES_LIST_MODIFICATION } from "../../../constants/textConstants";
+import Loader from "../../Loader/Loader";
 import ListMarquesDetails from "./ListMarquesDetails/ListMarquesDetails";
 
 class PageListMarques extends Component {
@@ -9,23 +10,19 @@ class PageListMarques extends Component {
     }
 
     componentDidMount(){
-        try{
-            this.props.promesseMarques
-            .then(res => {
-                this.setState({listeMarques: res});
-                const tmpAffichageFinal = [];
-                res.map(marque => {
-                    tmpAffichageFinal.push(<ListMarquesDetails
-                        sigle={marque.Sigle}
-                        nom={marque.NomComplet}    
-                    />);
-                });
-                this.setState({ affichageMarques: tmpAffichageFinal, isLoading: false});
+        this.props.promesseMarques
+        .then(res => {
+            this.setState({listeMarques: res});
+            const tmpAffichageFinal = [];
+            res.map(marque => {
+                tmpAffichageFinal.push(<ListMarquesDetails
+                    sigle={marque.Sigle}
+                    nom={marque.NomComplet}    
+                />);
             });
-        } catch {
-            this.setState({ error: true, isLoading: false});
-        }
-        
+            this.setState({ affichageMarques: tmpAffichageFinal, isLoading: false});
+        })
+        .catch(() => this.setState({ error: true, isLoading: false}));
     }   
     
     render(){
@@ -42,9 +39,7 @@ class PageListMarques extends Component {
             </thead>
             <tbody>{affichageMarques}</tbody>
             </table>
-        {isLoading && <div class="spinner-border text-danger" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>}
+            {isLoading && <Loader/>}
     </div>)
     }
 }

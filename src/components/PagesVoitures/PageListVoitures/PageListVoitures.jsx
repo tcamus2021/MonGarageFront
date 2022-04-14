@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { TEXT_ERREUR_GENERIQUE, TEXT_VOITURES_LIST_ID, TEXT_VOITURES_LIST_MARQUE, TEXT_VOITURES_LIST_MODELE, TEXT_VOITURES_LIST_MODIFIER, TEXT_VOITURES_LIST_SUPPRIMER, TEXT_VOITURES_LIST_TITLE } from "../../../constants/textConstants";
+import Loader from "../../Loader/Loader";
 import ListeVoituresDetails from "./ListVoituresDetails/ListVoituresDetails";
 
 class PageListVoitures extends Component {
@@ -9,23 +10,20 @@ class PageListVoitures extends Component {
     }
 
     componentDidMount() {
-        try{
-            this.props.promesseVoitures
-            .then(res => {
-                this.setState({ listeVoiture: res });
-                const tmpAffichageFinal = [];
-                res.map((voiture) => {
-                    tmpAffichageFinal.push(<ListeVoituresDetails
-                        id={voiture.IdVoiture}
-                        modele={voiture.Model}
-                        marque={voiture.Marque.NomComplet}
-                    />);
-                });
-                this.setState({  affichageVoitures: tmpAffichageFinal, isLoading: false });
+        this.props.promesseVoitures
+        .then(res => {
+            this.setState({ listeVoiture: res });
+            const tmpAffichageFinal = [];
+            res.map((voiture) => {
+                tmpAffichageFinal.push(<ListeVoituresDetails
+                    id={voiture.IdVoiture}
+                    modele={voiture.Model}
+                    marque={voiture.Marque.NomComplet}
+                />);
             });
-        } catch {
-            this.setState({  error: true, isLoading: false });
-        }
+            this.setState({  affichageVoitures: tmpAffichageFinal, isLoading: false });
+        })
+        .catch(() => this.setState({  error: true, isLoading: false }));
     }
 
     render() {
@@ -44,9 +42,7 @@ class PageListVoitures extends Component {
             </thead>
             <tbody>{affichageVoitures}</tbody>
             </table>
-        {isLoading && <div class="spinner-border text-danger" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>}
+        {isLoading && <Loader/>}
     </div>)
     }
 }
