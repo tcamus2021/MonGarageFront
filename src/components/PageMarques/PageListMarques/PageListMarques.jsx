@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { TEXT_ERREUR_GENERIQUE, TEXT_MARQUES_LIST_NOM, TEXT_MARQUES_LIST_SIGLE, TEXT_MARQUES_LIST_TITLE, TEXT_MARQUES_LIST_MODIFICATION } from "../../../constants/textConstants";
+import { TEXT_ERREUR_GENERIQUE, TEXT_MARQUES_LIST_NOM, TEXT_MARQUES_LIST_SIGLE, TEXT_MARQUES_LIST_TITLE, TEXT_MARQUES_LIST_MODIFICATION, TEXT_AJOUT } from "../../../constants/textConstants";
+import ButtonCreate from "../../Buttons/ButtonCreate";
 import Loader from "../../Loader/Loader";
 import ListMarquesDetails from "./ListMarquesDetails/ListMarquesDetails";
 
@@ -31,7 +32,7 @@ class PageListMarques extends Component {
         <div className="container">
         {error && <p className="text-danger">{TEXT_ERREUR_GENERIQUE}</p>}
         <h1>{TEXT_MARQUES_LIST_TITLE}</h1>
-        <table class="table table-info table-striped">
+        <table className="table table-info table-striped">
             <thead>
                 <th>{TEXT_MARQUES_LIST_SIGLE}</th>
                 <th>{TEXT_MARQUES_LIST_NOM}</th>
@@ -40,6 +41,7 @@ class PageListMarques extends Component {
             <tbody>{affichageMarques}</tbody>
             </table>
             {isLoading && <Loader/>}
+        <ButtonCreate link={'/'} text={TEXT_AJOUT} />
     </div>)
     }
 }

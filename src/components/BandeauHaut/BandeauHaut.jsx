@@ -1,6 +1,6 @@
 import React from "react";
 import { MES_CLIENTS, MES_FICHES, MES_MARQUES, MES_VOITURES, NAME_SITE } from "../../constants/textConstants";
-import { URL_BASE, URL_MARQUES_LIST, URL_VOITURES_LIST, URL_CLIENTS_LIST } from "../../constants/urlConstant";
+import { URL_BASE, URL_MARQUES_LIST, URL_VOITURES_LIST, URL_CLIENTS_LIST, URL_FICHES_LIST } from "../../constants/urlConstant";
 
 const BandeauHaut = ({url}) => {
 return (
@@ -13,7 +13,7 @@ return (
             <div className="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="/">{MES_FICHES}</a>
+                    <a className="nav-link active" href={url !== (URL_BASE + URL_FICHES_LIST) ? '/' + URL_FICHES_LIST : null}>{MES_FICHES}</a>
                     </li>
                     <li className="nav-item">
                     <a className="nav-link" href={url !== (URL_BASE + URL_CLIENTS_LIST) ? '/' + URL_CLIENTS_LIST : null}>{MES_CLIENTS}</a>
