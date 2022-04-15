@@ -1,5 +1,5 @@
 import React from 'react';
-import { URL_BASE, URL_HTTP, URL_VOITURES_LIST, URL_MARQUES_LIST, URL_CLIENTS_LIST, URL_FICHES_LIST, URL_FICHES_NEW, URL_MARQUES_NEW, URL_VOITURES_NEW } from '../../constants/urlConstant';
+import { URL_BASE, URL_HTTP, URL_VOITURES_LIST, URL_MARQUES_LIST, URL_CLIENTS_LIST, URL_FICHES_LIST, URL_FICHES_NEW, URL_MARQUES_NEW, URL_VOITURES_NEW, URL_CLIENT_NEW } from '../../constants/urlConstant';
 import Page404 from '../Page404/Page404';
 import PageAcceuil from '../PageAccueil/PageAccueil';
 import PageListVoitures from '../PagesVoitures/PageListVoitures';
@@ -9,6 +9,7 @@ import PageListClients from '../PageClients/PageListClients';
 import PageListFiches from '../PageFiches/PageListFiches';
 import PageCreationMarque from '../PageMarques/PageCreationMarques';
 import PageCreationVoitures from '../PagesVoitures/PageCreationVoitures';
+import PageCreationClients from '../PageClients/PageCreationClients';
 
 const Routing = () => {
     const url = document.URL.split(URL_HTTP)[1];
@@ -22,6 +23,7 @@ const Routing = () => {
             case URL_BASE + URL_VOITURES_LIST : page = <PageListVoitures/>;break;
             case URL_BASE + URL_VOITURES_NEW : page = <PageCreationVoitures/>;break;
             case URL_BASE + URL_CLIENTS_LIST : page = <PageListClients/>;break;
+            case URL_BASE + URL_CLIENT_NEW : page = <PageCreationClients/>;break;
             default : page = <Page404/>; break;
         };
         return page;

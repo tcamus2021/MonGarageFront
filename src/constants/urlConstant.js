@@ -9,6 +9,7 @@ export const URL_FICHES_LIST = 'fiches/';
 export const URL_FICHES_NEW = 'fiches/new/';
 export const URL_MARQUES_NEW = 'marques/new/';
 export const URL_VOITURES_NEW = 'voitures/new/';
+export const URL_CLIENT_NEW = 'clients/new/';
 
 // BACK
 export const URL_GET_VOITURES = 'localhost:44348/api/voitures';

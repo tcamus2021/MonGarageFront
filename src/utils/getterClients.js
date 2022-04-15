@@ -1,4 +1,5 @@
 import { URL_GET_CLIENTS, URL_HTTP } from "../constants/urlConstant";
+import uuid from 'react-uuid'
 
 const getClients = async () => {
     let res = null;
@@ -8,4 +9,17 @@ const getClients = async () => {
     return res;
 };
 
-export default getClients;
+const addClient = async (nom) => {
+    return fetch((URL_HTTP + URL_GET_CLIENTS), 
+    { 
+        method: 'POST', 
+        headers: {'Content-Type':'text/plain;charset=utf-8'},
+        body: JSON.stringify({Nom: nom, Numero: uuid()}),
+        mode: 'cors', 
+        credentials: 'same-origin',
+        cache: 'default', 
+        redirect: 'follow'
+    })
+};
+
+export { getClients, addClient };

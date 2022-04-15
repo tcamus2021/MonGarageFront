@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { TEXT_ERREUR_GENERIQUE } from "../../../constants/textConstants";
 import { URL_BASE, URL_HTTP, URL_VOITURES_LIST  } from "../../../constants/urlConstant";
 import ButtonSubmitCreate from "../../Buttons/ButtonSubmitCreate";
+import Loader from "../../Loader/Loader";
 
 export default class PageCreationVoitures extends Component {
     constructor(){
@@ -57,7 +58,7 @@ export default class PageCreationVoitures extends Component {
                     <div className="border border-dark d-flex col-4 m-2 justify-content-center p-2">
                         <label for='input-marque' className="m-2">Marque</label>
                         <select className={marqueClassName} id='input-marque' onChange={this.updateMarque}>
-                            <option selected value={'null'}>Choisissez votre marque...</option>
+                            <option selected value={'null'}>{!this.state.error ? 'Choisissez votre marque...' : 'Erreur'}</option>
                             {!this.state.isLoadingMarque && this.state.marques.map(marque =><option value={marque.Sigle}>{marque.NomComplet}</option>)}
                         </select>
                     </div>
