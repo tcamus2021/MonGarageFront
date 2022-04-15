@@ -1,9 +1,10 @@
 import { connect } from "react-redux";
-import {getClients} from "../../../utils/getterClients";
+import {deleteClient, getClients} from "../../../utils/getterClients";
 import PageListClients from "./PageListClients";
 
 const mapStateToProps = () => ({
-    promesseClients: getClients()
+    promesseClients: getClients,
+    promesseSupressionClient: deleteClient
 });
 
 export default connect(mapStateToProps)(PageListClients);

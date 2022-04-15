@@ -12,7 +12,11 @@ class PageListVoitures extends Component {
     }
 
     componentDidMount() {
-        this.props.promesseVoitures
+        this.getAll();
+    }
+
+    getAll(){
+        this.props.promesseVoitures()
         .then(res => {
             this.setState({ listeVoiture: res });
             const tmpAffichageFinal = [];
@@ -21,11 +25,21 @@ class PageListVoitures extends Component {
                     id={voiture.IdVoiture}
                     modele={voiture.Model}
                     marque={voiture.Marque.NomComplet}
+                    deleteFunc={() => this.submitDelete(voiture.IdVoiture)}
                 />);
             });
             this.setState({  affichageVoitures: tmpAffichageFinal, isLoading: false });
         })
         .catch(() => this.setState({  error: true, isLoading: false }));
+    }
+
+    async submitDelete(id){
+        this.props.promesseSuppressionVoiture(id)
+        .then(() => { 
+            this.setState({message: 'Suppression réussie', listeFiches: []});
+            this.getAll();
+        })
+        .catch(() => this.setState({error: true}))
     }
 
     render() {

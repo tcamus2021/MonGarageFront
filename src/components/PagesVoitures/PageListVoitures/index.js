@@ -1,9 +1,10 @@
 import { connect } from "react-redux";
 import PageListVoitures from "./PageListVoitures";
-import { getVoitures } from "../../../utils/getterVoitures";
+import { deleteVoiture, getVoitures } from "../../../utils/getterVoitures";
 
 const mapStateToProps = () => ({
-    promesseVoitures: getVoitures()
+    promesseVoitures: getVoitures,
+    promesseSuppressionVoiture: deleteVoiture
 });
 
 export default connect(mapStateToProps)(PageListVoitures);

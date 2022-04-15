@@ -21,4 +21,16 @@ const addVoitures = async ({ sigleMarque, model }) => {
     })
 };
 
-export { getVoitures, addVoitures };
+const deleteVoiture = async (id) => {
+    return fetch((URL_HTTP + URL_GET_VOITURES + '/' + id), 
+    { 
+        method: 'POST', 
+        headers: {'Content-Type':'text/plain;charset=utf-8'},
+        mode: 'cors', 
+        credentials: 'same-origin',
+        cache: 'default', 
+        redirect: 'follow'
+    })
+}
+
+export { getVoitures, addVoitures, deleteVoiture };

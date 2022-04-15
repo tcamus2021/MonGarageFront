@@ -22,4 +22,16 @@ const addClient = async (nom) => {
     })
 };
 
-export { getClients, addClient };
+const deleteClient = async (id) => {
+    return fetch((URL_HTTP + URL_GET_CLIENTS + '/' + id), 
+    { 
+        method: 'POST', 
+        headers: {'Content-Type':'text/plain;charset=utf-8'},
+        mode: 'cors', 
+        credentials: 'same-origin',
+        cache: 'default', 
+        redirect: 'follow'
+    })
+}
+
+export { getClients, addClient, deleteClient };
