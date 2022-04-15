@@ -8,4 +8,17 @@ const getVoitures = async () => {
     return res;
 };
 
-export default getVoitures;
+const addVoitures = async ({ sigleMarque, model }) => {
+    return fetch((URL_HTTP + URL_GET_VOITURES), 
+    { 
+        method: 'POST', 
+        headers: {'Content-Type':'text/plain;charset=utf-8'},
+        body: JSON.stringify({Marque: {Sigle: sigleMarque}, Model: model}),
+        mode: 'cors', 
+        credentials: 'same-origin',
+        cache: 'default', 
+        redirect: 'follow'
+    })
+};
+
+export { getVoitures, addVoitures };

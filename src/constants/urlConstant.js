@@ -8,6 +8,7 @@ export const URL_CLIENTS_LIST = 'clients/';
 export const URL_FICHES_LIST = 'fiches/';
 export const URL_FICHES_NEW = 'fiches/new/';
 export const URL_MARQUES_NEW = 'marques/new/';
+export const URL_VOITURES_NEW = 'voitures/new/';
 
 // BACK
 export const URL_GET_VOITURES = 'localhost:44348/api/voitures';

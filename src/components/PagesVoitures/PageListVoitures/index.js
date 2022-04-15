@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
-import getVoitures from "../../../utils/getterVoitures";
 import PageListVoitures from "./PageListVoitures";
+import { getVoitures } from "../../../utils/getterVoitures";
 
 const mapStateToProps = () => ({
     promesseVoitures: getVoitures()

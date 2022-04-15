@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { TEXT_AJOUT, TEXT_ERREUR_GENERIQUE, TEXT_VOITURES_LIST_ID, TEXT_VOITURES_LIST_MARQUE, TEXT_VOITURES_LIST_MODELE, TEXT_VOITURES_LIST_MODIFIER, TEXT_VOITURES_LIST_SUPPRIMER, TEXT_VOITURES_LIST_TITLE } from "../../../constants/textConstants";
+import { URL_BASE, URL_HTTP, URL_VOITURES_NEW } from "../../../constants/urlConstant";
 import ButtonCreate from "../../Buttons/ButtonCreate";
 import Loader from "../../Loader/Loader";
 import ListeVoituresDetails from "./ListVoituresDetails/ListVoituresDetails";
@@ -44,7 +45,7 @@ class PageListVoitures extends Component {
             <tbody>{affichageVoitures}</tbody>
             </table>
         {isLoading && <Loader/>}
-        <ButtonCreate link={'/'} text={TEXT_AJOUT} />
+        <ButtonCreate link={URL_HTTP + URL_BASE + URL_VOITURES_NEW} text={TEXT_AJOUT} />
     </div>)
     }
 }

@@ -34,8 +34,8 @@ export default class PageCreationMarque extends Component {
         }
     } 
 
-    updateSigle = (e) => this.setState({sigle: e.target.value, sigleClassName: 'm-2 form-control'});
-    updateNom = (e) => this.setState({nom: e.target.value, nomClassName: 'm-2 form-control'});
+    updateSigle = (e) => this.setState({sigle: e.target.value, sigleClassName: 'm-2 form-control', error: false});
+    updateNom = (e) => this.setState({nom: e.target.value, nomClassName: 'm-2 form-control', error: false});
 
     render(){
         const sigleOk = this.state.sigle !== '' && this.state.sigle.length === 2;
