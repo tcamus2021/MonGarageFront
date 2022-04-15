@@ -8,4 +8,17 @@ const getFiches = async () => {
     return res;
 };
 
-export default getFiches;
+const addFiches = async ({ prix, clientId, voitureId }) => {
+    return fetch((URL_HTTP + URL_GET_FICHES), 
+    { 
+        method: 'POST', 
+        headers: {'Content-Type':'text/plain;charset=utf-8'},
+        body: JSON.stringify({Prix: prix, Client: { IdClient: clientId }, Voiture: { IdVoiture: voitureId }}),
+        mode: 'cors', 
+        credentials: 'same-origin',
+        cache: 'default', 
+        redirect: 'follow'
+    })
+}
+
+export { getFiches, addFiches };

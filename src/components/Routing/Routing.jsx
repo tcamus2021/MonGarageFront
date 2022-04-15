@@ -10,6 +10,7 @@ import PageListFiches from '../PageFiches/PageListFiches';
 import PageCreationMarque from '../PageMarques/PageCreationMarques';
 import PageCreationVoitures from '../PagesVoitures/PageCreationVoitures';
 import PageCreationClients from '../PageClients/PageCreationClients';
+import PageCreationFiches from '../PageFiches/PageCreationFiches';
 
 const Routing = () => {
     const url = document.URL.split(URL_HTTP)[1];
@@ -18,6 +19,7 @@ const Routing = () => {
         switch(url){
             case URL_BASE : page = <PageAcceuil/>; break;
             case URL_BASE + URL_FICHES_LIST : page = <PageListFiches/>;break;
+            case URL_BASE + URL_FICHES_NEW : page = <PageCreationFiches/>;break;
             case URL_BASE + URL_MARQUES_NEW : page = <PageCreationMarque/>;break;
             case URL_BASE + URL_MARQUES_LIST : page = <PageListMarques/>;break;
             case URL_BASE + URL_VOITURES_LIST : page = <PageListVoitures/>;break;

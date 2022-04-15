@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import getFiches from "../../../utils/getterFiches";
+import { getFiches } from "../../../utils/getterFiches";
 import PageListFiches from "./PageListFiches";
 
 const mapStateToProps = () => ({

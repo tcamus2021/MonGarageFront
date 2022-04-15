@@ -10,6 +10,7 @@ import { TEXT_ERREUR_GENERIQUE,
     TEXT_FICHES_LIST_TITLE,
     TEXT_AJOUT
 } from "../../../constants/textConstants";
+import { URL_BASE, URL_FICHES_NEW, URL_HTTP } from "../../../constants/urlConstant";
 import ButtonCreate from "../../Buttons/ButtonCreate";
 import Loader from "../../Loader/Loader";
 import ListeDetailsFiches from "./ListDetailsFiches/ListDetailsFiches";
@@ -58,7 +59,7 @@ class PageListFiches extends Component {
             <tbody>{affichageFiches}</tbody>
             </table>
         {isLoading && <Loader/>}
-        <ButtonCreate link={'/'} text={TEXT_AJOUT} />
+        <ButtonCreate link={URL_HTTP + URL_BASE + URL_FICHES_NEW} text={TEXT_AJOUT} />
     </div>)
     }
 }
