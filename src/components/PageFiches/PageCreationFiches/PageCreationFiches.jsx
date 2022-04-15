@@ -55,9 +55,6 @@ export default class PageCreationFiches extends Component {
     updatePrix = (e) => this.setState({prix: e.target.value, prixClassName: 'm-2 form-control', error: false});
 
     render(){
-        console.log(this.state.client);
-        console.log(this.state.voiture);
-        console.log(this.state.prix);
         const clientOk = this.state.client !== 'null';
         const voitureOk = this.state.voiture !== 'null';
         const prixOk = this.state.prix > 0 && this.state.prix !== null;

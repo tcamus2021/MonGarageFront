@@ -16,13 +16,16 @@ import Loader from "../../Loader/Loader";
 import ListeDetailsFiches from "./ListDetailsFiches/ListDetailsFiches";
 
 class PageListFiches extends Component {
-    constructor() {
+    constructor(props) {
         super();
-        this.state = { listeFiches: [], affichageFiches: [], isLoading: true, error: false };
+        this.state = { listeFiches: [], affichageFiches: [], isLoading: true, error: false, message: '' };
     }
 
-    componentDidMount() {
-        this.props.promesseFiches
+    componentDidMount() { this.getAll(); }
+
+    getAll = () => {
+        this.props.promesseFiches()
+        .then(res => res.json())
         .then(res => {
             this.setState({ listeFiches: res });
             const tmpAffichageFinal = [];
@@ -33,6 +36,7 @@ class PageListFiches extends Component {
                     nomClient={fiche.Client.Nom}
                     modeleVoiture={fiche.Voiture.Model}
                     nomMarque={fiche.Voiture.Marque.NomComplet}
+                    deleteMethod={() => this.submitDelete(fiche.IdFiche)}
                 />);
             });
             this.setState({  affichageFiches: tmpAffichageFinal, isLoading: false });
@@ -40,11 +44,21 @@ class PageListFiches extends Component {
         .catch(() => this.setState({ isLoading: false, error: true}));
     }
 
+    async submitDelete(id){
+        this.props.promesseSupressionFiche(id)
+        .then(() => { 
+            this.setState({message: 'Suppression réussie', listeFiches: []});
+            this.getAll();
+        })
+        .catch(() => this.setState({error: true}))
+    }
+
     render() {
-        const { affichageFiches, isLoading, error } = this.state
+        const { affichageFiches, isLoading, error, message } = this.state
         return(
     <div className="container">
     {error && <p className="text-danger">{TEXT_ERREUR_GENERIQUE}</p>}
+    {message !== '' && <p className="text-success">{message}</p>}
         <h1>{TEXT_FICHES_LIST_TITLE}</h1>
         <table className="table table-info table-striped">
             <thead>

@@ -1,11 +1,10 @@
-import { URL_GET_FICHES, URL_HTTP } from "../constants/urlConstant";
+import { URL_BASE, URL_GET_FICHES, URL_HTTP } from "../constants/urlConstant";
 
 const getFiches = async () => {
-    let res = null;
-    await fetch((URL_HTTP + URL_GET_FICHES), { method: 'GET', mode: 'cors', cache: 'default' })
-    .then(response => response.json())
-    .then(data => res = data);
-    return res;
+    return fetch((URL_HTTP + URL_GET_FICHES), { 
+        method: 'GET', 
+        mode: 'cors', 
+        cache: 'default' });
 };
 
 const addFiches = async ({ prix, clientId, voitureId }) => {
@@ -21,4 +20,16 @@ const addFiches = async ({ prix, clientId, voitureId }) => {
     })
 }
 
-export { getFiches, addFiches };
+const deleteFiche = async (id) => {
+    return fetch((URL_HTTP + URL_GET_FICHES + '/' + id), 
+    { 
+        method: 'POST', 
+        headers: {'Content-Type':'text/plain;charset=utf-8'},
+        mode: 'cors', 
+        credentials: 'same-origin',
+        cache: 'default', 
+        redirect: 'follow'
+    })
+}
+
+export { getFiches, addFiches, deleteFiche };

@@ -1,9 +1,10 @@
 import { connect } from "react-redux";
-import { getFiches } from "../../../utils/getterFiches";
+import { deleteFiche, getFiches } from "../../../utils/getterFiches";
 import PageListFiches from "./PageListFiches";
 
 const mapStateToProps = () => ({
-    promesseFiches: getFiches()
+    promesseFiches: getFiches,
+    promesseSupressionFiche: deleteFiche
 });
 
 export default connect(mapStateToProps)(PageListFiches);

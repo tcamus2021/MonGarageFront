@@ -1,6 +1,6 @@
 import React from "react";
 
-const ListeDetailsFiches = ({ id, prix, nomClient, modeleVoiture, nomMarque }) => (
+const ListeDetailsFiches = ({ id, prix, nomClient, modeleVoiture, nomMarque, deleteMethod }) => (
     <tr>
         <td>{id}</td>
         <td>{prix}</td>
@@ -8,7 +8,7 @@ const ListeDetailsFiches = ({ id, prix, nomClient, modeleVoiture, nomMarque }) =
         <td>{modeleVoiture}</td>
         <td>{nomMarque}</td>
         <td>Update</td>
-        <td>Delete</td>
+        <td><button className="btn btn-danger" onClick={deleteMethod}>Supprimer</button></td>
     </tr>
 );
 
