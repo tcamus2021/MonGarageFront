@@ -34,7 +34,6 @@ class PageListClients extends Component {
                     nom={client.Nom}
                     numero={client.Numero}
                     deleteFunc={() => this.submitDelete(client.IdClient)}
-                    modifyFunc={() => redirectToModify(URL_CLIENTS_MODIFY, client.IdClient)}
                 />);
             });
             this.setState({  affichageClients: tmpAffichageFinal, isLoading: false });
@@ -63,7 +62,6 @@ class PageListClients extends Component {
                         <th>{TEXT_CLIENTS_LIST_ID}</th>
                         <th>{TEXT_CLIENTS_LIST_NOM}</th>
                         <th>{TEXT_CLIENTS_LIST_NUMERO}</th>
-                        <th>{TEXT_VOITURES_LIST_MODIFIER}</th>
                         <th>{TEXT_VOITURES_LIST_SUPPRIMER}</th>
                     </thead>
                     <tbody>{affichageClients}</tbody>

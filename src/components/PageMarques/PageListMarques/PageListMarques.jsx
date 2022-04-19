@@ -21,7 +21,6 @@ class PageListMarques extends Component {
                 tmpAffichageFinal.push(<ListMarquesDetails
                     sigle={marque.Sigle}
                     nom={marque.NomComplet}    
-                    modifyFunc={() => redirectToModify(URL_MARQUES_MODIFY, marque.Sigle)}
                 />);
             });
             this.setState({ affichageMarques: tmpAffichageFinal, isLoading: false});
@@ -39,7 +38,6 @@ class PageListMarques extends Component {
             <thead>
                 <th>{TEXT_MARQUES_LIST_SIGLE}</th>
                 <th>{TEXT_MARQUES_LIST_NOM}</th>
-                <th>{TEXT_MARQUES_LIST_MODIFICATION}</th>
             </thead>
             <tbody>{affichageMarques}</tbody>
             </table>

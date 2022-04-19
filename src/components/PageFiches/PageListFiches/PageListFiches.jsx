@@ -69,7 +69,6 @@ class PageListFiches extends Component {
                 <th>{TEXT_FICHES_LIST_NOM}</th>
                 <th>{TEXT_FICHES_LIST_VOITURE_MODELE}</th>
                 <th>{TEXT_FICHES_LIST_VOITURE_MARQUE}</th>
-                <th>{TEXT_FICHES_LIST_MODIFIER}</th>
                 <th>{TEXT_FICHES_LIST_SUPPRIMER}</th>
             </thead>
             <tbody>{affichageFiches}</tbody>
