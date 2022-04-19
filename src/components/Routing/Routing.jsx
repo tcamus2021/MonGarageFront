@@ -1,7 +1,7 @@
 import React from 'react';
 import { URL_BASE, URL_HTTP, URL_VOITURES_LIST, URL_MARQUES_LIST, URL_CLIENTS_LIST, URL_FICHES_LIST, URL_FICHES_NEW, URL_MARQUES_NEW, URL_VOITURES_NEW, URL_CLIENT_NEW } from '../../constants/urlConstant';
 import Page404 from '../Page404/Page404';
-import PageAcceuil from '../PageAccueil/PageAccueil';
+import PageAcceuil from '../PageAccueil';
 import PageListVoitures from '../PagesVoitures/PageListVoitures';
 import BandeauHaut from "../BandeauHaut/BandeauHaut";
 import PageListMarques from '../PageMarques/PageListMarques';
