@@ -10,7 +10,8 @@ import { TEXT_ERREUR_GENERIQUE,
     TEXT_FICHES_LIST_TITLE,
     TEXT_AJOUT
 } from "../../../constants/textConstants";
-import { URL_BASE, URL_FICHES_NEW, URL_HTTP } from "../../../constants/urlConstant";
+import { URL_BASE, URL_FICHES_MODIFY, URL_FICHES_NEW, URL_HTTP } from "../../../constants/urlConstant";
+import { redirectToModify } from "../../../utils/redirect";
 import ButtonCreate from "../../Buttons/ButtonCreate";
 import Loader from "../../Loader/Loader";
 import ListeDetailsFiches from "./ListDetailsFiches/ListDetailsFiches";
@@ -37,6 +38,7 @@ class PageListFiches extends Component {
                     modeleVoiture={fiche.Voiture.Model}
                     nomMarque={fiche.Voiture.Marque.NomComplet}
                     deleteMethod={() => this.submitDelete(fiche.IdFiche)}
+                    modifyFunc={() => redirectToModify(URL_FICHES_MODIFY, fiche.IdFiche)}
                 />);
             });
             this.setState({  affichageFiches: tmpAffichageFinal, isLoading: false });

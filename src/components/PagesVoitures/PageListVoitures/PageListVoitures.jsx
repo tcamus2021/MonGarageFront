@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { TEXT_AJOUT, TEXT_ERREUR_GENERIQUE, TEXT_VOITURES_LIST_ID, TEXT_VOITURES_LIST_MARQUE, TEXT_VOITURES_LIST_MODELE, TEXT_VOITURES_LIST_MODIFIER, TEXT_VOITURES_LIST_SUPPRIMER, TEXT_VOITURES_LIST_TITLE } from "../../../constants/textConstants";
-import { URL_BASE, URL_HTTP, URL_VOITURES_NEW } from "../../../constants/urlConstant";
+import { URL_BASE, URL_HTTP, URL_VOITURES_MODIFY, URL_VOITURES_NEW } from "../../../constants/urlConstant";
+import { redirectToModify } from "../../../utils/redirect";
 import ButtonCreate from "../../Buttons/ButtonCreate";
 import Loader from "../../Loader/Loader";
 import ListeVoituresDetails from "./ListVoituresDetails/ListVoituresDetails";
@@ -26,6 +27,7 @@ class PageListVoitures extends Component {
                     modele={voiture.Model}
                     marque={voiture.Marque.NomComplet}
                     deleteFunc={() => this.submitDelete(voiture.IdVoiture)}
+                    modifyFunc={() => redirectToModify(URL_VOITURES_MODIFY, voiture.IdVoiture)}
                 />);
             });
             this.setState({  affichageVoitures: tmpAffichageFinal, isLoading: false });

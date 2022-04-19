@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { TEXT_ERREUR_GENERIQUE } from "../../../constants/textConstants";
-import { URL_BASE, URL_CLIENTS_LIST, URL_HTTP, URL_MARQUES_LIST } from "../../../constants/urlConstant";
+import { URL_BASE, URL_CLIENTS_LIST, URL_HTTP } from "../../../constants/urlConstant";
 import ButtonSubmitCreate from "../../Buttons/ButtonSubmitCreate";
 
 export default class PageCreationClients extends Component {

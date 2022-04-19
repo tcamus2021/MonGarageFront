@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { TEXT_ERREUR_GENERIQUE, TEXT_MARQUES_LIST_NOM, TEXT_MARQUES_LIST_SIGLE, TEXT_MARQUES_LIST_TITLE, TEXT_MARQUES_LIST_MODIFICATION, TEXT_AJOUT } from "../../../constants/textConstants";
-import { URL_BASE, URL_MARQUES_NEW, URL_HTTP } from "../../../constants/urlConstant";
+import { URL_BASE, URL_MARQUES_NEW, URL_HTTP, URL_MARQUES_MODIFY } from "../../../constants/urlConstant";
+import { redirectToModify } from "../../../utils/redirect";
 import ButtonCreate from "../../Buttons/ButtonCreate";
 import Loader from "../../Loader/Loader";
 import ListMarquesDetails from "./ListMarquesDetails/ListMarquesDetails";
@@ -20,6 +21,7 @@ class PageListMarques extends Component {
                 tmpAffichageFinal.push(<ListMarquesDetails
                     sigle={marque.Sigle}
                     nom={marque.NomComplet}    
+                    modifyFunc={() => redirectToModify(URL_MARQUES_MODIFY, marque.Sigle)}
                 />);
             });
             this.setState({ affichageMarques: tmpAffichageFinal, isLoading: false});

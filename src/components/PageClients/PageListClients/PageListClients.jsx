@@ -7,7 +7,8 @@ import { TEXT_ERREUR_GENERIQUE,
     TEXT_CLIENTS_LIST_ID,
     TEXT_CLIENTS_LIST_NUMERO,
     TEXT_AJOUT} from "../../../constants/textConstants";
-import { URL_BASE, URL_CLIENT_NEW, URL_HTTP } from "../../../constants/urlConstant";
+import { URL_BASE, URL_CLIENTS_MODIFY, URL_CLIENT_NEW, URL_HTTP } from "../../../constants/urlConstant";
+import { redirectToModify } from "../../../utils/redirect";
 import ButtonCreate from "../../Buttons/ButtonCreate";
 import Loader from "../../Loader/Loader";
 import ListeDetailsClients from "./ListDetailsClients/ListDetailsClients";
@@ -33,6 +34,7 @@ class PageListClients extends Component {
                     nom={client.Nom}
                     numero={client.Numero}
                     deleteFunc={() => this.submitDelete(client.IdClient)}
+                    modifyFunc={() => redirectToModify(URL_CLIENTS_MODIFY, client.IdClient)}
                 />);
             });
             this.setState({  affichageClients: tmpAffichageFinal, isLoading: false });
